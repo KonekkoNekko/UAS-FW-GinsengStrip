@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage');
 });
 
-Route::resource('customers', CustomerController::class);
-Route::resource('admins', AdminController::class);
+// Customer Routes
+Route::view('/view_product', 'customer/products_catalogue');
+Route::resource('cart', CartController::class);
+
+// Admin Routes
+Route::resource('products', ProductController::class);
+Route::resource('transactions', TransactionController::class);
