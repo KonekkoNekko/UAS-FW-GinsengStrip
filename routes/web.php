@@ -1,29 +1,23 @@
 <?php
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
-    return view('landingpage');
+    return view('welcome');
 });
 
-// Customer Routes
-Route::view('/view_product', 'customer/products_catalogue');
-Route::resource('cart', CartController::class);
+Auth::routes();
 
-// Admin Routes
-Route::resource('products', ProductController::class);
-Route::resource('transactions', TransactionController::class);
+//Normal Users Routes List
+Route::middleware(['auth', 'user-access:user'])->group(function () {
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
+
+//Admin Routes List
+Route::middleware(['auth', 'user-access:admin'])->group(function () {
+
+    Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin');
+});
