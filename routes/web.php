@@ -22,7 +22,9 @@ Route::get('/', function () {
 
 // Customer Routes
 Route::view('/view_product', 'customer/products_catalogue');
-Route::resource('cart', CartController::class);
+Route::view('/cart', 'customer/cart');
+Route::view('/delivery', 'customer/delivery');
+// Route::resource('cart', CartController::class);
 
 // Admin Routes
 Route::resource('products', ProductController::class);
