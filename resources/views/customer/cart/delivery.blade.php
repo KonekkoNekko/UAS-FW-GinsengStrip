@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <div class="container vh-100">
-        <div class="row align-items-center ">
+    <div class="container text-center">
+        <div class="row align-items-center vh-100">
             <div class="col-md-6">
-
+                Google Map
             </div>
             <div class="col-md-6">
                 <div class="p-5 bg-light rounded-3">
@@ -22,7 +22,7 @@
                         <h4>Your Delivery</h4>
                     </div>
                     <hr>
-                    <div class="row">
+                    <div class="row text-start">
                         <div class="col-md-12 mb-3">
                             <label for="receiverName" class="form-label">Receiver's Name</label>
                             <input class="form-control @error('receiverName') is-invalid @enderror" type="text"

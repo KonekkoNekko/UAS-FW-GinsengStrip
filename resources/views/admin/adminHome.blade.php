@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    You are a Admin User.
+                    You are a Admin User. RIlll
                 </div>
             </div>
         </div>
