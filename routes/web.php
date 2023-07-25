@@ -36,3 +36,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin');
 });
+
+// Landing Page
+Route::view('/landingpage1', 'landingpage1');
+Route::view('/landingpage2', 'customer/landingpage2');
