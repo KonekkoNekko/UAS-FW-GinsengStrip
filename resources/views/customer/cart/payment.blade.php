@@ -55,11 +55,14 @@
         <button class="btn btn-primary me-md-2 col-3" type="button">Back</button>
         <button class="btn btn-primary col-3" type="button">Next</button>
     </div>
-    <nav class="navbar navbar-expand-md bg-dark">
-        <div class="d-flex text-center">
-            <img src="{{ Vite::asset('resources/images/ginseng.png') }}" alt="" class="d-flex align-item-center" style="width: 2rem;">
+    <footer class="page-footer fixed-bottom bg-secondary mt-5">
+        <div class="container text-center p-1">
+            <a class="navbar-brand" href="#">
+                <img src="{{ Vite::asset('resources/images/cruzde.png') }}" alt="image" width="30"
+                    height="30">
+            </a>
         </div>
-    </nav>
+    </footer>
 </body>
 </html>
 
