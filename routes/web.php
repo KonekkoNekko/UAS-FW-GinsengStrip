@@ -40,3 +40,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 // Landing Page
 Route::view('/landingpage1', 'landingpage1');
 Route::view('/landingpage2', 'customer/landingpage2');
+
+Route::view('/payment', 'customer/cart/payment');
+
+Route::view('/profile', 'customer/profile');

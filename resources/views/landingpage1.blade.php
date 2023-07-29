@@ -27,10 +27,13 @@
         <img src="{{ Vite::asset('resources/images/welcome.jpg') }}" alt="" class="img-thumbnail m-5">
     </div>
 
-    <nav class="navbar navbar-expand-md bg-dark">
-        <div class="d-flex align-item-center">
-            <img src="{{ Vite::asset('resources/images/ginseng.png') }}" alt="" class="d-flex align-item-center" style="width: 2rem;">
+    <footer class="page-footer fixed-bottom bg-secondary mt-5">
+        <div class="container text-center p-1">
+            <a class="navbar-brand" href="#">
+                <img src="{{ Vite::asset('resources/images/cruzde.png') }}" alt="image" width="30"
+                    height="30">
+            </a>
         </div>
-    </nav>
+    </footer>
 </body>
 </html>
