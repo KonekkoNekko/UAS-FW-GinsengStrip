@@ -1,3 +1,7 @@
+<?php $__env->startSection('navbar'); ?>
+    <?php echo $__env->make('layouts.nav-back-logout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
     <div class="card bg-dark position-absolute top-50 start-50 translate-middle" style="width: 18rem;">
         <div class="card-body d-flex flex-column align-items-center">

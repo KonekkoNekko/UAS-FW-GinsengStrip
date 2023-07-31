@@ -21,20 +21,23 @@
 <body class="bg-white">
     <div id="app">
         <?php
-            $currentRouteName = Route::currentRouteName('home');
+            $currentRouteName = Route::currentRouteName();
+            
         ?>
 
-        <?php if($currentRouteName == '' || $currentRouteName == 'home'): ?>
-            <?php echo $__env->make('layouts.nav-auth', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <?php elseif($currentRouteName = 'profile'): ?>
-            <?php echo $__env->make('layouts.nav-back-logout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <?php endif; ?>
+        <?php echo $__env->yieldContent('navbar'); ?>
 
         <main class="py-4">
             <?php echo $__env->yieldContent('content'); ?>
         </main>
-        <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+        <?php if($currentRouteName != ''): ?>
+            <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php endif; ?>
+
     </div>
+
+    <?php echo $__env->yieldContent('scriptstuff'); ?>
 </body>
 
 </html>

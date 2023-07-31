@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('navbar')
+    @include('layouts.nav-auth')
+@endsection
+
 @section('content')
     <div class="col-lg-10 mx-auto">
         <div class="d-flex" style="width: 40rem;">

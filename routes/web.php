@@ -12,7 +12,7 @@ Route::get('/', function () {
     if (auth()->check()) {
         return redirect('/home');
     }
-    return view('landingpage1');
+    return view('landingpage0');
 });
 
 Auth::routes();

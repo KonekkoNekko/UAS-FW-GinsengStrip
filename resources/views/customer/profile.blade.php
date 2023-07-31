@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('navbar')
+    @include('layouts.nav-back-logout')
+@endsection
 
 @section('content')
     <div class="card bg-dark position-absolute top-50 start-50 translate-middle" style="width: 18rem;">

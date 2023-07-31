@@ -21,20 +21,23 @@
 <body class="bg-white">
     <div id="app">
         @php
-            $currentRouteName = Route::currentRouteName('home');
+            $currentRouteName = Route::currentRouteName();
+            
         @endphp
 
-        @if ($currentRouteName == '' || $currentRouteName == 'home')
-            @include('layouts.nav-auth')
-        @elseif ($currentRouteName = 'profile')
-            @include('layouts.nav-back-logout')
-        @endif
+        @yield('navbar')
 
         <main class="py-4">
             @yield('content')
         </main>
-        @include('layouts.footer')
+
+        @if ($currentRouteName != '')
+            @include('layouts.footer')
+        @endif
+
     </div>
+
+    @yield('scriptstuff')
 </body>
 
 </html>

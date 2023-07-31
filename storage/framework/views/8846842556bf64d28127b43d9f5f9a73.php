@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php $__env->startSection('navbar'); ?>
+    <?php echo $__env->make('layouts.nav-middlelogo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belajar Controller & View pada Laravel</title>
-    <?php echo app('Illuminate\Foundation\Vite')('resources/sass/app.scss'); ?>
-</head>
-
-<body>
+<?php $__env->startSection('content'); ?>
     <div class="container text-center">
         <div class="row align-items-center vh-100">
             <div class="col-md-6">
@@ -80,7 +73,7 @@ unset($__errorArgs, $__bag); ?>
                     <hr>
                     <div class="row">
                         <div class="col-md-6 d-grid">
-                            <a href="" class="btn btn-outline-dark btn-lg mt-3"><i
+                            <a href="<?php echo e(route('cart.show')); ?>" class="btn btn-outline-dark btn-lg mt-3"><i
                                     class="bi-arrow-left-circle me-2"></i> Back</a>
                         </div>
                         <div class="col-md-6 d-grid">
@@ -93,8 +86,6 @@ unset($__errorArgs, $__bag); ?>
 
         </div>
     </div>
-    </form>
-    </div>
-    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
-</body>
-<?php /**PATH D:\FemWokPurp\UAS-Hub\UAS-FW-GinsengStrip\resources\views/customer/cart/delivery.blade.php ENDPATH**/ ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\FemWokPurp\UAS-Hub\UAS-FW-GinsengStrip\resources\views/customer/cart/delivery.blade.php ENDPATH**/ ?>

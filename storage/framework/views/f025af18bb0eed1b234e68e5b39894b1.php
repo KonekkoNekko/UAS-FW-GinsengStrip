@@ -1,3 +1,7 @@
+<?php $__env->startSection('navbar'); ?>
+    <?php echo $__env->make('layouts.nav-auth', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
     <div class="col-lg-10 mx-auto">
         <div class="d-flex" style="width: 40rem;">
