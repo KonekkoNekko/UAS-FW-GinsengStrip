@@ -23,7 +23,13 @@
           <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">How to checkout?</p>
           <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">What the heck is GINSENG STRIP?</p>
         </div>
+        <div class="d-flex justify-content-around">
+            <p>Any Question?</p>
+            <a href=""><button type="button" class="wa btn btn-sm rounded-pill"><i class="bi bi-whatsapp px-1"></i>Whatsapp</button></a>
+        </div>
+
     </div>
+
 
     <footer class="page-footer fixed-bottom bg-secondary mt-5">
         <div class="container text-center p-1">
