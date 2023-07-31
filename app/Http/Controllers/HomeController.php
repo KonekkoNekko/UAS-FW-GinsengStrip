@@ -37,7 +37,7 @@ class HomeController extends Controller
 
     public function customerHome()
     {
-        return view('customer/customerHome');
+        return view('customer/landingpage2');
     }
 
     /**
