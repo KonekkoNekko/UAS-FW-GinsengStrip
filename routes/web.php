@@ -51,3 +51,8 @@ Route::get('/profile', function () {
     return view('customer.profile');
 })->name('profile');
 
+Route::view('/faq', 'customer/faq');
+
+Route::view('/landingpage0', 'customer/landingpage0');
+
+Route::view('/total', 'customer/total');
