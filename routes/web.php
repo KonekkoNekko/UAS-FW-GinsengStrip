@@ -46,3 +46,7 @@ Route::view('/payment', 'customer/cart/payment');
 Route::view('/profile', 'customer/profile');
 
 Route::view('/faq', 'customer/faq');
+
+Route::view('/landingpage0', 'customer/landingpage0');
+
+Route::view('/total', 'customer/total');
