@@ -5,14 +5,23 @@
 <?php $__env->startSection('content'); ?>
     <div class="card bg-dark position-absolute top-50 start-50 translate-middle" style="width: 18rem;">
         <div class="card-body d-flex flex-column align-items-center">
-            <img src="<?php echo e(Vite::asset('resources/images/kepin.png')); ?>" class="card-img-top rounded-circle py-4" alt="..."
-                style="width: 100px;">
+
         </div>
         <div class="card-body bg-secondary">
             <h5 class="text-white fw-bold text-center py-3 ">YOUR PROFILE</h5>
-            <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">Kevin Surya</p>
-            <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">huditara@gmail.com</p>
-            <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">082244582243</p>
+            <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded"><?php echo e($userdata->name); ?></p>
+            <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded"><?php echo e($userdata->email); ?></p>
+            <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded"><?php echo e($userdata->phone); ?></p>
+            <div class="d-flex justify-content-center">
+                <form method="POST" action="<?php echo e(route('delete-account')); ?>">
+                    <?php echo csrf_field(); ?>
+                    <?php echo method_field('DELETE'); ?>
+                    <button type="submit" class="btn btn-danger mt-3 border"
+                        onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.')">
+                        Delete Account
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 <?php $__env->stopSection(); ?>

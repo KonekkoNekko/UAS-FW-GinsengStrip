@@ -16,13 +16,14 @@
 
     <!-- Scripts -->
     <?php echo app('Illuminate\Foundation\Vite')(['resources/sass/app.scss', 'resources/js/app.js']); ?>
+    <?php echo $__env->yieldContent('stylestuff'); ?>
 </head>
 
 <body class="bg-white">
     <div id="app">
         <?php
             $currentRouteName = Route::currentRouteName();
-            
+            $currentUrl = request()->url();
         ?>
 
         <?php echo $__env->yieldContent('navbar'); ?>
@@ -31,7 +32,9 @@
             <?php echo $__env->yieldContent('content'); ?>
         </main>
 
-        <?php if($currentRouteName != ''): ?>
+        <?php if($currentUrl == '' || $currentRouteName == 'beginning'): ?>
+
+        <?php else: ?>
             <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php endif; ?>
 

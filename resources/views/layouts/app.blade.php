@@ -16,13 +16,14 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @yield('stylestuff')
 </head>
 
 <body class="bg-white">
     <div id="app">
         @php
             $currentRouteName = Route::currentRouteName();
-            
+            $currentUrl = request()->url();
         @endphp
 
         @yield('navbar')
@@ -31,7 +32,9 @@
             @yield('content')
         </main>
 
-        @if ($currentRouteName != '')
+        @if ($currentUrl == '' || $currentRouteName == 'beginning')
+
+        @else
             @include('layouts.footer')
         @endif
 
