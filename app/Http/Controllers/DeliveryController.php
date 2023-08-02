@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Expedition;
+// use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DeliveryController extends Controller
 {
@@ -11,7 +13,8 @@ class DeliveryController extends Controller
     function index()
     {
         $expeditions = Expedition::all();
-        return view('customer.cart.delivery', compact('expeditions'));
+        $deliveryData = Session::get('deliveryData');
+        return view('customer.cart.delivery', compact('expeditions', 'deliveryData'));
     }
 
     public function store(Request $request)
@@ -35,6 +38,6 @@ class DeliveryController extends Controller
         $request->session()->put('deliveryData', $deliveryData);
 
         // Redirect to the payment route
-        return redirect()->route('payment.index_total');
+        return redirect()->route('payment.showtotal');
     }
 }

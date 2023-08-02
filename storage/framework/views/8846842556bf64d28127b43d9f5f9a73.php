@@ -30,7 +30,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" type="text"
                                 name="receiverName" id="receiverName"
-                                value="<?php echo e(old('receiverName')); ?>"placeholder="Enter Receiver's Name">
+                                value="<?php echo e(old('receiverName', $deliveryData['receiverName'] ?? '')); ?>"placeholder="Enter Receiver's Name">
                             <?php $__errorArgs = ['receiverName'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -52,7 +52,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" type="text" name="address"
-                                id="address" value="<?php echo e(old('address')); ?>" placeholder="Enter Address">
+                                id="address" value="<?php echo e(old('address', $deliveryData['address'] ?? '')); ?>" placeholder="Enter Address">
                             <?php $__errorArgs = ['address'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -74,7 +74,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" type="text"
-                                name="coordinate" id="coordinate" value="<?php echo e(old('coordinate')); ?>"
+                                name="coordinate" id="coordinate" value="<?php echo e(old('coordinate', $deliveryData['coordinate'] ?? '')); ?>"
                                 placeholder="Added automatically on map's marker" readonly>
                             <?php $__errorArgs = ['coordinate'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -91,13 +91,12 @@ unset($__errorArgs, $__bag); ?>
                             <label for="address" class="form-label">Select Delivery</label>
                             <select name="expedition" id="expedition" class="form-select">
                                 <?php $__currentLoopData = $expeditions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $expedition): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($expedition->id); ?>" <?php echo e(old('expedition') == $expedition->id ? 'selected' : ''); ?>>
+                                    <option value="<?php echo e($expedition->id); ?>" <?php echo e(old('expedition', $deliveryData['expedition'] ?? '') == $expedition->id ? 'selected' : ''); ?>>
                                         <?php echo e($expedition->company); ?>
 
                                     </option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
-
                         </div>
                     </div>
                     <hr>

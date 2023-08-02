@@ -10,5 +10,10 @@ class Expedition extends Model
     use HasFactory;
     protected $table = 'expeditions';
 
-    protected $fillable = ['company'];
+    protected $fillable = ['company', 'delivery_fee'];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

@@ -15,12 +15,10 @@ class ExpeditionSeeder extends Seeder
     {
         //
         $expeditions = [
-            ['company' => 'Go-Jek Instant'],
-            ['company' => 'SiCepat Express'],
-            ['company' => 'JNT Express'],
+            ['company' => 'Go-Jek Instant', 'delivery_fee' => 10000],
+            ['company' => 'SiCepat Express', 'delivery_fee' => 12000],
+            ['company' => 'JNT Express', 'delivery_fee' => 15000],
             // Add more data if needed
-
-
         ];
         Expedition::insert($expeditions);
     }

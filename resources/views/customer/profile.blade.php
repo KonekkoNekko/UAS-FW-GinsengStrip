@@ -12,6 +12,7 @@
         <div class="card-body bg-secondary">
             <h5 class="text-white fw-bold text-center py-3 ">YOUR PROFILE</h5>
             <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">{{ $userdata->name }}</p>
+            <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">{{ $userdata->username }}</p>
             <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">{{ $userdata->email }}</p>
             <p class="bg-white text-center rounded py-2 mx-4 shadow bg-body-tertiary rounded">{{ $userdata->phone }}</p>
             <div class="d-flex justify-content-center">

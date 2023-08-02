@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('expeditions', function (Blueprint $table) {
             $table->id();
             $table->string('company');
+            $table->integer('delivery_fee');
             $table->timestamps();
         });
     }

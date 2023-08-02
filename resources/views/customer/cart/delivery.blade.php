@@ -25,7 +25,7 @@
                             <label for="receiverName" class="form-label">Receiver's Name</label>
                             <input class="form-control @error('receiverName') is-invalid @enderror" type="text"
                                 name="receiverName" id="receiverName"
-                                value="{{ old('receiverName') }}"placeholder="Enter Receiver's Name">
+                                value="{{ old('receiverName', $deliveryData['receiverName'] ?? '') }}"placeholder="Enter Receiver's Name">
                             @error('receiverName')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
@@ -33,7 +33,7 @@
                         <div class="col-md-12 mb-3">
                             <label for="address" class="form-label">Address</label>
                             <input class="form-control @error('address') is-invalid @enderror" type="text" name="address"
-                                id="address" value="{{ old('address') }}" placeholder="Enter Address">
+                                id="address" value="{{ old('address', $deliveryData['address'] ?? '') }}" placeholder="Enter Address">
                             @error('address')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
@@ -41,7 +41,7 @@
                         <div class="col-md-12 mb-3">
                             <label for="coordinate" class="form-label">Coordinate</label>
                             <input class="form-control @error('coordinate') is-invalid @enderror" type="text"
-                                name="coordinate" id="coordinate" value="{{ old('coordinate') }}"
+                                name="coordinate" id="coordinate" value="{{ old('coordinate', $deliveryData['coordinate'] ?? '') }}"
                                 placeholder="Added automatically on map's marker" readonly>
                             @error('coordinate')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
@@ -51,12 +51,11 @@
                             <label for="address" class="form-label">Select Delivery</label>
                             <select name="expedition" id="expedition" class="form-select">
                                 @foreach ($expeditions as $expedition)
-                                    <option value="{{ $expedition->id }}" {{ old('expedition') == $expedition->id ? 'selected' : '' }}>
+                                    <option value="{{ $expedition->id }}" {{ old('expedition', $deliveryData['expedition'] ?? '') == $expedition->id ? 'selected' : '' }}>
                                         {{ $expedition->company }}
                                     </option>
                                 @endforeach
                             </select>
-
                         </div>
                     </div>
                     <hr>

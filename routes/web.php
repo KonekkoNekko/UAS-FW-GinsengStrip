@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentFinalController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,7 +38,10 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::post('/cart/destroy', [CartController::class, 'destroyCart'])->name('cart.destroy');
     Route::get('/delivery', [DeliveryController::class, 'index'])->name('delivery.show');
     Route::post('/delivery/store', [DeliveryController::class, 'store'])->name('delivery.store');
-    Route::get('/totalpayment', [PaymentController::class, 'index_total'])->name('payment.index_total');
+    Route::get('/totalpayment', [PaymentController::class, 'showtotal'])->name('payment.showtotal');
+    Route::post('/totalpayment/store', [PaymentController::class, 'storetotal'])->name('payment.storetotal');
+    Route::get('/payment', [PaymentFinalController::class, 'show'])->name('showfinalpay');
+    Route::post('/payment/store', [PaymentFinalController::class, 'store'])->name('finalstore');
 });
 
 
@@ -53,7 +57,3 @@ Route::view('/landingpage2', 'customer/landingpage2');
 Route::view('/payment', 'customer/cart/payment');
 
 Route::view('/faq', 'customer/faq');
-
-Route::view('/landingpage0', 'customer/landingpage0');
-
-// Route::view('/total', 'customer/total');
