@@ -16,7 +16,6 @@
                         <legend>Bank Transfer</legend>
                         <div class="mb-3 mt-3">
                             <label for="payment" class="form-label">Bank Destination</label>
-                            
                             <select name="payment" id="payment" class="form-select">
                                 <?php $__currentLoopData = $paymentBank; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bank): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option value="<?php echo e($bank->id); ?>" <?php echo e(old('bank') == $bank->id ? 'selected' : ''); ?>>

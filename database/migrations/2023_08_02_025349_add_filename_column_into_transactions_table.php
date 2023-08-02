@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->string('original_filename')->after('payments_id')->nullable();
+            $table->string('original_filename')->after('pay_statuses_id')->nullable();
             $table->string('encrypted_filename')->after('original_filename')->nullable();
         });
     }

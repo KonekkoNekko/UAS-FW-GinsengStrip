@@ -40,8 +40,6 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::post('/delivery/store', [DeliveryController::class, 'store'])->name('delivery.store');
     Route::get('/totalpayment', [PaymentController::class, 'showtotal'])->name('payment.showtotal');
     Route::post('/totalpayment/store', [PaymentController::class, 'storetotal'])->name('payment.storetotal');
-    Route::get('/payment', [PaymentFinalController::class, 'show'])->name('showfinalpay');
-    Route::post('/payment/store', [PaymentFinalController::class, 'store'])->name('finalstore');
 });
 
 

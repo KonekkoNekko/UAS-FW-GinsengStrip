@@ -16,9 +16,9 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('cust_name');
             $table->json('cart');
-            $table->decimal('total_transaction', 10, 2);
+            $table->integer('total_transaction');
             $table->string('payment_method');
-            $table->unsignedBigInteger('payments_id'); // Change data type to unsignedBigInteger
+            $table->unsignedBigInteger('payments_id')->default(0); // Change data type to unsignedBigInteger
             $table->foreign('payments_id')->references('id')->on('payments'); // Make sure the referenced primary key is 'id'
             $table->string('address');
             $table->string('coordinate');
