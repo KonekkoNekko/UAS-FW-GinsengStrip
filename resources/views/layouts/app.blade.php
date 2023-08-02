@@ -16,25 +16,31 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @yield('stylestuff')
 </head>
 
 <body class="bg-white">
     <div id="app">
         @php
-            $currentRouteName = Route::currentRouteName('home');
+            $currentRouteName = Route::currentRouteName();
+            $currentUrl = request()->url();
         @endphp
 
-        @if ($currentRouteName == '' || $currentRouteName == 'home')
-            @include('layouts.nav-auth')
-        @elseif ($currentRouteName = 'profile')
-            @include('layouts.nav-back-logout')
-        @endif
+        @yield('navbar')
 
         <main class="py-4">
             @yield('content')
         </main>
-        @include('layouts.footer')
+
+        @if ($currentUrl == '' || $currentRouteName == 'beginning')
+
+        @else
+            @include('layouts.footer')
+        @endif
+
     </div>
+
+    @yield('scriptstuff')
 </body>
 
 </html>

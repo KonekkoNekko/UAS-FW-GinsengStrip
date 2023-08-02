@@ -23,7 +23,7 @@
                     <div class="col-2 d-grid">
                         <a href="{{ route('cart.show') }}" class="btn btn-outline-secondary btn-lg fs-3 my-3 fw-medium">
                             <i class="bi bi-bag-fill me-2"></i>
-                            {{ Cart::instance(auth()->user()->name)->count() }}
+                            {{ Cart::instance(auth()->user()->username)->count() }}
                         </a>
                     </div>
                 </div>

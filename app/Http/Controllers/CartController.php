@@ -10,7 +10,7 @@ class CartController extends Controller
 {
     public function showCart()
     {
-        $identifier = auth()->user()->name;
+        $identifier = auth()->user()->username;
         $cartContent = Cart::instance($identifier)->content();
 
         return view('customer.cart.index', compact('cartContent'));
@@ -18,21 +18,21 @@ class CartController extends Controller
 
     public function deleteItem(Request $request, $rowId)
     {
-        $identifier = auth()->user()->name;
+        $identifier = auth()->user()->username;
         Cart::instance($identifier)->remove($rowId);
         return redirect()->back()->with('success', 'Item removed from cart.');
     }
 
     public function updateQuantity(Request $request, $rowId)
     {
-        $identifier = auth()->user()->name;
+        $identifier = auth()->user()->username;
         Cart::instance($identifier)->update($rowId, $request->quantity);
         return redirect()->back()->with('success', 'Cart updated successfully.');
     }
 
     public function destroyCart()
     {
-        $identifier = auth()->user()->name;
+        $identifier = auth()->user()->username;
         Cart::instance($identifier)->destroy();
         return redirect()->back()->with('success', 'Cart destroyed successfully.');
     }
