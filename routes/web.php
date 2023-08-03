@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\PaymentFinalController;
+use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -46,7 +47,12 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 //Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin');
+    Route::resource('/productadms', ProductAdminController::class);
+    Route::get('/transactions', [TransactionController::class, 'index'])->name('transc.index');
+    Route::get('/transactions/edit/{$id}', [TransactionController::class, 'edit'])->name('transc.edit');
+    Route::get('getTransactions', [TransactionController::class, 'getData'])->name('trans.getData');
 });
+
 
 // Landing Page
 Route::view('/landingpage1', 'landingpage1');

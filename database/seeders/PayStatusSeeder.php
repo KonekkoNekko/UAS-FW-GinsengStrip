@@ -11,9 +11,9 @@ class PayStatusSeeder extends Seeder
     public function run()
     {
         $statuses = [
-            ['status' => 'Paid'],
-            ['status' => 'Unpaid'],
-            ['status' => 'Pending'],
+            ['status' => 'Dibayar'],
+            ['status' => 'Dalam Perjalanan'],
+            ['status' => 'Terkirim'],
             // Add more data as needed
         ];
 
