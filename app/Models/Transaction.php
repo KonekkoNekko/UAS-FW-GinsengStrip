@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['cust_name', 'cart', 'total_transaction', 'payment_method', 'payments_id', 'address', 'coordinate','expeditions_id', 'pay_statuses_id'];
+    protected $fillable = ['id' ,'cust_name', 'cart', 'total_transaction', 'payment_method', 'payments_id', 'address', 'coordinate','expeditions_id', 'pay_statuses_id'];
 
     protected $casts = [
         'cart' => 'json',

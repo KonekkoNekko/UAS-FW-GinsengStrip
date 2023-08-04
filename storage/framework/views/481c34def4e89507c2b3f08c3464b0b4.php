@@ -7,7 +7,7 @@
     <?php echo app('Illuminate\Foundation\Vite')(['resources/sass/admin.scss', 'resources/css/style.css']); ?>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
-
+    <?php echo app('Illuminate\Foundation\Vite')('resources/sass/app.scss'); ?>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 
 </head>
@@ -67,12 +67,13 @@
     <section class="home-section">
         <div class="text">Dashboard</div>
 
-        <main class="m-5">
+        <main class="m-3">
             <?php echo $__env->yieldContent('content'); ?>
         </main>
     </section>
     <!-- Scripts -->
-    <?php echo app('Illuminate\Foundation\Vite')('resources/js/script.js'); ?>
+    
+    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
     <?php echo $__env->yieldPushContent('scripts'); ?>
 </body>
 

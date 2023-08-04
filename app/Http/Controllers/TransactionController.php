@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PayStatus;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -16,17 +17,21 @@ class TransactionController extends Controller
 
     public function edit ($id)
     {
-        return view('admin.transaction.index', compact('transactions'));
+        $transaction = Transaction::find($id);
+        $statuses = PayStatus::all();
+
+        return view('admin.transaction.edit', compact('transaction', 'statuses'));
     }
-    public function getData(Request $request)
-    {
-        $transactions = Transaction::with(['payment', 'expedition', 'payStatus']);
 
+    public function update($id){
+        $transaction = Transaction::find($id);
+        $transaction->pay_statuses_id = request('statustransc');
+        $transaction->save();
+        return redirect()->back();
+    }
 
-        if ($request->ajax()) {
-            return datatables()->of($transactions)->addIndexColumn()->addColumn('actions', function ($transactions) {
-                return view('admin.productadms.action', compact('transactions'));
-            })->toJson();
-        }
+    public function destroy($id){
+        Transaction::find($id)->delete();
+        return redirect()->route('transc.index');
     }
 }

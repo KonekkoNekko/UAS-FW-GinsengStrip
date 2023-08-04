@@ -1,11 +1,7 @@
 <?php $__env->startSection('content'); ?>
-    
-    
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            
-
-            <div class="table-responsive border p-3 rounded-3 mb-5">
+        <div class="col-md-12">
+            <div class="table-responsive border p-3 rounded-4 mb-5 bg-light">
                 <table class="table table-bordered table-hover table-striped mb-0 bg-white datatable" id="transTable">
                     <thead>
                         <tr>
@@ -18,7 +14,7 @@
                             <th>Address</th>
                             <th>Expedition</th>
                             <th>Status</th>
-                            <th></th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,8 +22,15 @@
                             <tr>
                                 <td><?php echo e($transaction->id); ?></td>
                                 <td><?php echo e($transaction->cust_name); ?></td>
-                                <td><?php echo e(json_encode($transaction->cart)); ?></td>
-                                <td><?php echo e($transaction->total_transaction); ?></td>
+                                <td>
+                                    <?php $__currentLoopData = $transaction->cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php echo e($item['name']); ?> - <?php echo e($item['options']['artist']); ?> : <?php echo e($item['qty']); ?> pcs -
+                                        <?php echo e($item['price']); ?>
+
+                                        <br>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </td>
+                                <td>Rp. <?php echo e(number_format($transaction->total_transaction, 0, ',', '.')); ?></td>
                                 <td><?php echo e($transaction->payment_method); ?></td>
                                 <td><?php echo e($transaction->payment->bank); ?></td>
                                 <td><?php echo e($transaction->address); ?></td>
@@ -43,7 +46,6 @@
     </div>
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('scripts'); ?>
-    
     <script type="module">
         $(document).ready(function() {
             $('#transTable').DataTable();

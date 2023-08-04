@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
     if (auth()->check()) {
@@ -49,8 +50,19 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin');
     Route::resource('/productadms', ProductAdminController::class);
     Route::get('/transactions', [TransactionController::class, 'index'])->name('transc.index');
-    Route::get('/transactions/edit/{$id}', [TransactionController::class, 'edit'])->name('transc.edit');
-    Route::get('getTransactions', [TransactionController::class, 'getData'])->name('trans.getData');
+    Route::get('/transactions/edit/{id}', [TransactionController::class, 'edit'])->name('transc.edit');
+    Route::post('/transactions/update/{id}', [TransactionController::class, 'update'])->name('transc.update');
+    Route::delete('/transactions/delete/{id}', [TransactionController::class, 'destroy'])->name('transc.delete');
+    Route::get('/open-google-maps/{coordinate}', function ($coordinate) {
+        // Extract the latitude and longitude from the coordinate
+        list($latitude, $longitude) = explode(',', $coordinate);
+
+        // Construct the Google Maps URL
+        $googleMapsUrl = "https://www.google.com/maps?q={$latitude},{$longitude}";
+
+        // Redirect the user to the Google Maps URL
+        return Redirect::away($googleMapsUrl);
+    })->name('openGoogleMaps');
 });
 
 
