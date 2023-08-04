@@ -6,3 +6,20 @@
 
 // Bootstrap
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// //leaflet
+// @import 'leaflet/dist/leaflet.css';
+// @import 'leaflet-draw/dist/leaflet.draw.css';
+
+// // DataTables
+// @import "datatables.net-bs5/css/dataTables.bootstrap5.css";
+// @import "datatables.net-buttons-bs5/css/buttons.bootstrap5.css";
+
+ol, ul {
+    padding-left: 0rem !important;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+    width: 70px !important;
+    display: inline-block;
+}
