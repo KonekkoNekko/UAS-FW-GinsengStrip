@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center vh-100">
         <img src="{{ Vite::asset('resources/images/messi1.jpg') }}" alt="" style="width: 37rem;" class="m-5 px-5">
         <img src="{{ Vite::asset('resources/images/messi2.jpg') }}" alt="" style="width: 37rem;" class="m-5 px-5">
     </div>
 
-    <div class="d-flex justify-content-center ginseng">
+    <div class="d-flex justify-content-center ginseng vh-100">
         <div class="logo p-5 text-white">
             <img src="{{ Vite::asset('resources/images/ginseng strip.png') }}" alt="" style="width: 10rem;">
         </div>
@@ -23,7 +23,7 @@
             percaya dalam melestarikan <br> skena musik dan culture.
         </div>
     </div>
-    <div class="d-flex" style="width: 40rem;">
+    <div class="d-flex vh-100" style="width: 40rem;">
         <img src="{{ Vite::asset('resources/images/big poppa.jpg') }}" alt="" class="img-thumbnail m-5">
         <img src="{{ Vite::asset('resources/images/welcome.jpg') }}" alt="" class="img-thumbnail m-5">
     </div>

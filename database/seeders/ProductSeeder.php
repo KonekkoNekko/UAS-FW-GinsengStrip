@@ -14,24 +14,37 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         Product::create([
-            'product_album' => 'Bela Lugosi Dead',
-            'product_artist' => 'Bauhaus',
-            'product_photo_filename' => 'bld.png',
+            'product_album' => 'April Skies',
+            'product_artist' => 'Jesus Mary Chain',
             'product_price' => 200000,
+            'original_filename' => 'april skies - jesus mary chain (remove bg).png',
+        ]);
+        Product::create([
+            'product_album' => 'Countdown to Extinction',
+            'product_artist' => 'Megadeth',
+            'product_price' => 200000,
+            'original_filename' => 'countdown to extinction - megadeth (remove bg).png',
+        ]);
+        Product::create([
+            'product_album' => 'In Utero',
+            'product_artist' => 'Nirvana',
+            'product_price' => 200000,
+            'original_filename' => 'in utero - nirvana (remove bg).png',
+        ]);
+        Product::create([
+            'product_album' => 'Jurang Pemisah',
+            'product_artist' => 'Yockie',
+            'product_price' => 200000,
+            'original_filename' => 'jurang pemisah - yockie (remove bg).png',
+        ]);
+        Product::create([
+            'product_album' => 'Pablo Honey',
+            'product_artist' => 'Radiohead',
+            'product_price' => 200000,
+            'original_filename' => 'pablo honey - radiohead (remove bg).png',
         ]);
 
-        Product::create([
-            'product_album' => 'Born To Die',
-            'product_artist' => 'Lana Del Rey',
-            'product_photo_filename' => 'btd.png',
-            'product_price' => 200000,
-        ]);
-
-        Product::create([
-            'product_album' => 'Filosofem',
-            'product_artist' => 'Burzum',
-            'product_photo_filename' => 'fsm.png',
-            'product_price' => 200000,
-        ]);
+        //Factory
+        Product::factory()->count(55)->create();
     }
 }

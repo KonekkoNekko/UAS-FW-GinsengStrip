@@ -39,7 +39,8 @@
         @endif
 
     </div>
-
+    
+    @include('sweetalert::alert')
     @yield('scriptstuff')
 </body>
 

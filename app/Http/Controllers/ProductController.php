@@ -31,6 +31,7 @@ class ProductController extends Controller
             'price' => $product->product_price,
             'options' => [
                 'artist' => $product->product_artist,
+                'filename' => $product->original_filename,
                 // Add more options as needed
             ]
         ]);

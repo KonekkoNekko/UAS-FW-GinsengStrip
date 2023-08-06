@@ -28,8 +28,8 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-2">
-                            <img src="{{ Vite::asset('resources/images/bld.png') }}" class="img-thumbnail rounded-start"
-                                alt="...">
+                            <img src="{{ asset('storage/products/' . $item->options->filename) }}"
+                                class="img-fluid rounded-start" alt="{{ $item->options->filename }}">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -63,7 +63,8 @@
                     </h5>
                 </div>
                 <div class="col-lg-3 d-grid">
-                    <a href="{{ route('delivery.show') }}" class="btn btn-outline-primary btn-lg fs-2 align-self-center">
+                    <a href="{{ route('delivery.show') }}"
+                        class="btn btn-outline-primary btn-lg fs-2 align-self-center">
                         <i class="bi bi-bag-fill me-2"></i> Checkout
                     </a>
                 </div>

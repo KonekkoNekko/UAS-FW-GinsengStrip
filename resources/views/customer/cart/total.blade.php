@@ -158,7 +158,7 @@
 
 @section('scriptstuff')
     <script>
-        <!-- Update the ID to 'methodpay' 
+        <!-- Update the ID to 'methodpay'
         -->
         document.getElementById('methodpay').addEventListener('change',
         function()
