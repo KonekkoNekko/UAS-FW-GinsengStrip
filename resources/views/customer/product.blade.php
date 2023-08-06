@@ -33,8 +33,8 @@
                         <div class="col-md-4">
                             <div class="card">
                                 <img class="img-thumbnail"
-                                    src="{{ Vite::asset('resources/images/' . $product->product_photo_filename) }}"
-                                    alt="image" class="img-fluid">
+                                    src="{{ asset('storage/products/' . $product->original_filename) }}"
+                                    alt="{{$product->original_filename}}" class="img-fluid">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $product->product_album }}</h5>
                                     <p class="card-text">{{ $product->product_artist }}</p>

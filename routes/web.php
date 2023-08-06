@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('landingpage0');
 })->name('beginning');
 
+Route::view('/landingpage1', 'landingpage1');
+Route::view('/landingpage2', 'customer/landingpage2');
+
 Auth::routes();
 
 //Customer Routes List
@@ -49,6 +52,9 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin');
     Route::resource('/productadms', ProductAdminController::class);
+    Route::get('exportExcel', [ProductAdminController::class, 'exportExcel'])->name('productadms.exportExcel');
+    Route::get('exportPdf', [ProductAdminController::class, 'exportPdf'])->name('productadms.exportPdf');
+    Route::get('download-file-product/{id}', [ProductAdminController::class, 'downloadFile'])->name('productadms.downloadFile');
     Route::get('/transactions', [TransactionController::class, 'index'])->name('transc.index');
     Route::get('/transactions/edit/{id}', [TransactionController::class, 'edit'])->name('transc.edit');
     Route::post('/transactions/update/{id}', [TransactionController::class, 'update'])->name('transc.update');
@@ -64,12 +70,5 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return Redirect::away($googleMapsUrl);
     })->name('openGoogleMaps');
 });
-
-
-// Landing Page
-Route::view('/landingpage1', 'landingpage1');
-Route::view('/landingpage2', 'customer/landingpage2');
-
-Route::view('/payment', 'customer/cart/payment');
 
 Route::view('/faq', 'customer/faq');

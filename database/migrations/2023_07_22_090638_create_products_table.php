@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('product_album');
             $table->string('product_artist');
-            $table->string('product_photo_filename')->nullable();
             $table->integer('product_price');
             $table->timestamps();
         });
